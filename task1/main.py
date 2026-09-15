@@ -1,4 +1,5 @@
-def recursive(n):
+def recursive(opt):
+    n = len(opt)
     count = 0
 
     def generate(i):
@@ -12,10 +13,10 @@ def recursive(n):
         generate(i + 1)
 
     generate(0)
-
     return count
 
-def bitmask(n):
+def bitmask(opt):
+    n = len(opt)
     count = 0
 
     for mask in range(2 ** n):
@@ -25,13 +26,12 @@ def bitmask(n):
 def recursivevizov(n):
     if n == 0:
         return 1
-
     return 2 * recursivevizov(n - 1) + 1
 
 
 if __name__ == "__main__":
-    n = 3
+    opt = [1, 2, 3]
 
-    print("Рекурсивный способ:", recursive(n))
-    print("Битовые маски:", bitmask(n))
-    print("Рекурсивные вызовы:", recursivevizov(n))
+    print("Рекурсивный способ:", recursive(opt))
+    print("Битовые маски:", bitmask(opt))
+    print("Рекурсивные вызовы:", recursivevizov(len(opt)))
