@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2cb63ae-62e6-47eb-ab48-ac2932917cd3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/task1/bench.py" beforeDir="false" afterPath="$PROJECT_DIR$/task1/bench.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task1/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/task1/graph.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
