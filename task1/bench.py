@@ -31,7 +31,7 @@ def measure(func, opt):
     return statistics.median(times)
 
 
-sizes = [1, 2, 4, 8, 16, 20, 22, 24]
+sizes = [1, 2, 4, 8, 16, 20, 22]
 
 print("n,size,recursive,bitmask")
 

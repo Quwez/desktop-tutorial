@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2cb63ae-62e6-47eb-ab48-ac2932917cd3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/task1/graph.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task1/bench.py" beforeDir="false" afterPath="$PROJECT_DIR$/task1/bench.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +42,12 @@
     &quot;git-widget-placeholder&quot;: &quot;task1&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.graph">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Yan27\Documents\GitHub\taski\task1" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.bench">
     <configuration name="bench" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="taski" />
       <option name="ENV_FILES" value="" />
@@ -141,8 +146,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.graph" />
         <item itemvalue="Python.bench" />
+        <item itemvalue="Python.graph" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python tests.Python tests for testiki.TestCombinations.testrecursivevizov" />
         <item itemvalue="Python tests.Python tests in testiki.py" />
