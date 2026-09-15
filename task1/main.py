@@ -22,9 +22,16 @@ def bitmask(n):
         count += 1
 
     return count
+def recursivevizov(n):
+    if n == 0:
+        return 1
+
+    return 2 * recursivevizov(n - 1) + 1
+
 
 if __name__ == "__main__":
-    n = 5
+    n = 3
 
     print("Рекурсивный способ:", recursive(n))
     print("Битовые маски:", bitmask(n))
+    print("Рекурсивные вызовы:", recursivevizov(n))
