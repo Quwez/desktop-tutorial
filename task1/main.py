@@ -15,8 +15,16 @@ def recursive(n):
 
     return count
 
+def bitmask(n):
+    count = 0
+
+    for mask in range(2 ** n):
+        count += 1
+
+    return count
 
 if __name__ == "__main__":
-    n = 3
+    n = 5
 
-    print("Количество наборов:", recursive(n))
+    print("Рекурсивный способ:", recursive(n))
+    print("Битовые маски:", bitmask(n))
