@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2cb63ae-62e6-47eb-ab48-ac2932917cd3" name="Changes" comment="" />
+    <list default="true" id="b2cb63ae-62e6-47eb-ab48-ac2932917cd3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/task1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/task1/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,17 +30,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Python tests for testiki.TestCombinations.testrecursivevizov.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in testiki.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.bench.executor&quot;: &quot;Run&quot;,
-    &quot;Python.graph.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;task1&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests for testiki.TestCombinations.testrecursivevizov.executor": "Run",
+    "Python tests.Python tests in testiki.py.executor": "Run",
+    "Python.bench.executor": "Run",
+    "Python.graph.executor": "Run",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "task1",
+    "last_opened_file_path": "C:/Users/Yan27/Documents/GitHub/taski"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Yan27\Documents\GitHub\taski\task1" />
