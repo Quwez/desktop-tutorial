@@ -7,55 +7,55 @@ import java.awt.geom.QuadCurve2D;
 public class Truck {
     private final int x;
     private final int y;
+
     public Truck(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
     public void draw(Graphics2D g) {
-        Graphics2D g2 = (Graphics2D) g.create();
-        g2.translate(x, y);
+        g.translate(x, y);
 
-        g2.setColor(new Color(60, 120, 180));
-        g2.fillRect(0, 0, 260, 140);
-        g2.setColor(Color.BLACK);
-        g2.setStroke(new BasicStroke(2.0f));
-        g2.drawRect(0, 0, 260, 140);
+        g.setColor(new Color(60, 120, 180));
+        g.fillRect(0, 0, 260, 140);
+        g.setColor(Color.BLACK);
+        g.setStroke(new BasicStroke(2.0f));
+        g.drawRect(0, 0, 260, 140);
 
-        g2.setColor(Color.WHITE);
-        g2.setFont(new Font("Times New Roman", Font.BOLD, 22));
-        g2.drawString("ОЗОН", 65, 80);
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Times New Roman", Font.BOLD, 22));
+        g.drawString("ОЗОН", 65, 80);
 
-        g2.setColor(new Color(210, 50, 40));
-        g2.fillRect(260, 50, 110, 90);
-        g2.setColor(Color.BLACK);
-        g2.drawRect(260, 50, 110, 90);
+        g.setColor(new Color(210, 50, 40));
+        g.fillRect(260, 50, 110, 90);
+        g.setColor(Color.BLACK);
+        g.drawRect(260, 50, 110, 90);
 
-        g2.setStroke(new BasicStroke(3.0f));
+        g.setStroke(new BasicStroke(3.0f));
         QuadCurve2D roofCurve = new QuadCurve2D.Float(260, 50, 315, 20, 370, 50);
-        g2.draw(roofCurve);
+        g.draw(roofCurve);
 
-        g2.setStroke(new BasicStroke(2.0f));
-        g2.drawLine(315, 35, 325, 10);
+        g.setStroke(new BasicStroke(2.0f));
+        g.drawLine(315, 35, 325, 10);
 
-        g2.setColor(new Color(180, 220, 240));
-        g2.fillRect(280, 65, 60, 35);
-        g2.setColor(Color.BLACK);
-        g2.drawRect(280, 65, 60, 35);
-        g2.drawLine(310, 65, 310, 100);
+        g.setColor(new Color(180, 220, 240));
+        g.fillRect(280, 65, 60, 35);
+        g.setColor(Color.BLACK);
+        g.drawRect(280, 65, 60, 35);
+        g.drawLine(310, 65, 310, 100);
 
-        g2.setColor(Color.YELLOW);
-        g2.fillRect(362, 105, 8, 15);
+        g.setColor(Color.YELLOW);
+        g.fillRect(362, 105, 8, 15);
 
-        g2.setColor(Color.BLACK);
-        g2.setStroke(new BasicStroke(3.0f));
-        g2.drawArc(35, 115, 60, 60, 0, 180);
-        g2.drawArc(280, 115, 60, 60, 0, 180);
+        g.setColor(Color.BLACK);
+        g.setStroke(new BasicStroke(3.0f));
+        g.drawArc(35, 115, 60, 60, 0, 180);
+        g.drawArc(280, 115, 60, 60, 0, 180);
 
-        drawWheel(g2, 65, 145);
-        drawWheel(g2, 310, 145);
+        drawWheel(g, 65, 145);
+        drawWheel(g, 310, 145);
 
-        g2.dispose();
+        g.translate(-x, -y);
     }
 
     private void drawWheel(Graphics2D g, int centerX, int centerY) {
