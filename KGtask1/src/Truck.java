@@ -5,12 +5,19 @@ import java.awt.Graphics2D;
 import java.awt.geom.QuadCurve2D;
 
 public class Truck {
-    private final int x;
+    private int x;
     private final int y;
 
     public Truck(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public void move() {
+        x += 2;
+        if (x > 700) {
+            x = -400;
+        }
     }
 
     public void draw(Graphics2D g) {
@@ -32,8 +39,8 @@ public class Truck {
         g.drawRect(260, 50, 110, 90);
 
         g.setStroke(new BasicStroke(3.0f));
-        QuadCurve2D roofCurve = new QuadCurve2D.Float(260, 50, 315, 20, 370, 50);
-        g.draw(roofCurve);
+        QuadCurve2D roof = new QuadCurve2D.Float(260, 50, 315, 20, 370, 50);
+        g.draw(roof);
 
         g.setStroke(new BasicStroke(2.0f));
         g.drawLine(315, 35, 325, 10);
@@ -47,27 +54,30 @@ public class Truck {
         g.setColor(Color.YELLOW);
         g.fillRect(362, 105, 8, 15);
 
-        g.setColor(Color.BLACK);
-        g.setStroke(new BasicStroke(3.0f));
-        g.drawArc(35, 115, 60, 60, 0, 180);
-        g.drawArc(280, 115, 60, 60, 0, 180);
+        int r1 = 24;
+        int r2 = 24;
 
-        drawWheel(g, 65, 145);
-        drawWheel(g, 310, 145);
+        drawWheel(g, 65, 145, r1);
+        drawWheel(g, 310, 145, r2);
 
         g.translate(-x, -y);
     }
 
-    private void drawWheel(Graphics2D g, int centerX, int centerY) {
-        int radius = 24;
+    private void drawWheel(Graphics2D g, int cx, int cy, int r) {
+        int archR = r + 6;
+        g.setColor(Color.BLACK);
+        g.setStroke(new BasicStroke(3.0f));
+        g.drawArc(cx - archR, cy - archR, archR * 2, archR * 2, 0, 180);
 
         g.setColor(new Color(30, 30, 30));
-        g.fillOval(centerX - radius, centerY - radius, radius * 2, radius * 2);
+        g.fillOval(cx - r, cy - r, r * 2, r * 2);
 
+        int rimR = (int) (r * 0.7);
         g.setColor(Color.LIGHT_GRAY);
-        g.fillOval(centerX - radius + 7, centerY - radius + 7, (radius - 7) * 2, (radius - 7) * 2);
+        g.fillOval(cx - rimR, cy - rimR, rimR * 2, rimR * 2);
 
+        int hubR = Math.max(3, r / 6);
         g.setColor(Color.BLACK);
-        g.fillOval(centerX - 4, centerY - 4, 8, 8);
+        g.fillOval(cx - hubR, cy - hubR, hubR * 2, hubR * 2);
     }
 }

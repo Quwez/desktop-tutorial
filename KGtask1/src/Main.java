@@ -1,52 +1,56 @@
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.Color;
+import javax.swing.Timer;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Main extends JFrame {
-    private static final int WINDOW_WIDTH = 700;
-    private static final int WINDOW_HEIGHT = 450;
+    private static final int WIN_W = 700;
+    private static final int WIN_H = 450;
 
     public Main() {
-        setTitle("Крутой грузовик");
+        super("Грузовик");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
         add(new DrawPanel());
-        pack();
+        setSize(WIN_W, WIN_H);
 
         setLocationRelativeTo(null);
         setVisible(true);
     }
 
     private static class DrawPanel extends JPanel {
+        private final Back bg = new Back(WIN_W, WIN_H);
         private final Truck truck = new Truck(150, 140);
 
         public DrawPanel() {
-            setPreferredSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
+            setPreferredSize(new Dimension(WIN_W, WIN_H));
+
+            Timer timer = new Timer(16, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    truck.move();
+                    repaint();
+                }
+            });
+            timer.start();
         }
 
         @Override
-        protected void paintComponent(Graphics graphics) {
-            super.paintComponent(graphics);
-            Graphics2D g2d = (Graphics2D) graphics;
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            Graphics2D g2 = (Graphics2D) g;
 
-            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
-            g2d.setColor(new Color(215, 235, 250));
-            g2d.fillRect(0, 0, WINDOW_WIDTH, 290);
-
-            g2d.setColor(new Color(110, 185, 95));
-            g2d.fillRect(0, 290, WINDOW_WIDTH, 160);
-
-            g2d.setColor(new Color(65, 65, 70));
-            g2d.fillRect(0, 305, WINDOW_WIDTH, 80);
-
-            truck.draw(g2d);
+            bg.draw(g2);
+            truck.draw(g2);
         }
     }
 
