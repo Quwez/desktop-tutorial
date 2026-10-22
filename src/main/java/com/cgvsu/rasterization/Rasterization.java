@@ -29,21 +29,40 @@ public class Rasterization {
 
         int deltax = Math.abs(x1 - x0);
         int deltay = Math.abs(y1 - y0);
+
+        if (deltax == 0 && deltay == 0) {
+            pixelWriter.setColor(x0, y0, color);
+            return;
+        }
+
+        int dirx = (x1 - x0) > 0 ? 1 : -1;
+        int diry = (y1 - y0) > 0 ? 1 : -1;
+
+        int x = x0;
         int y = y0;
-        int diry = y1 - y0;
-
         int error = 0;
-        int deltaerr = deltay + 1;
 
-        if (diry > 0) diry = 1;
-        if (diry < 0) diry = -1;
-
-        for (int x = x0; x <= x1; x++) {
-            pixelWriter.setColor(x, y, color);
-            error = error + deltaerr;
-            if (error >= deltax + 1) {
+        if (deltax >= deltay) {
+            int deltaerr = deltay + 1;
+            for (int i = 0; i <= deltax; i++) {
+                pixelWriter.setColor(x, y, color);
+                error = error + deltaerr;
+                if (error >= deltax + 1) {
+                    y = y + diry;
+                    error = error - (deltax + 1);
+                }
+                x = x + dirx;
+            }
+        } else {
+            int deltaerr = deltax + 1;
+            for (int i = 0; i <= deltay; i++) {
+                pixelWriter.setColor(x, y, color);
+                error = error + deltaerr;
+                if (error >= deltay + 1) {
+                    x = x + dirx;
+                    error = error - (deltay + 1);
+                }
                 y = y + diry;
-                error = error - (deltax + 1);
             }
         }
     }
