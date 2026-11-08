@@ -6,11 +6,12 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class ApiPageIterator implements Iterator<String>, Iterable<String> {
+
     private final pageApi api;
     private int nextPage = 0;
     private int cursor = 0;
     private List<String> buffer = Collections.emptyList();
-    private boolean hasMorePages = true;
+    private boolean exhausted = false;
 
     public ApiPageIterator(pageApi api) {
         this.api = api;
@@ -21,15 +22,19 @@ public class ApiPageIterator implements Iterator<String>, Iterable<String> {
         if (cursor < buffer.size()) {
             return true;
         }
-        if (!hasMorePages) {
+
+        if (exhausted) {
             return false;
         }
 
         pageApi.Page page = api.fetchPage(nextPage);
         nextPage++;
         buffer = page.getItems();
-        hasMorePages = page.hasMore();
         cursor = 0;
+
+        if (!page.hasMore() || buffer.isEmpty()) {
+            exhausted = true;
+        }
 
         return !buffer.isEmpty();
     }
@@ -37,13 +42,20 @@ public class ApiPageIterator implements Iterator<String>, Iterable<String> {
     @Override
     public String next() {
         if (!hasNext()) {
-            throw new NoSuchElementException("Больше нет элементов");
+            throw new NoSuchElementException();
         }
         return buffer.get(cursor++);
     }
 
     @Override
     public Iterator<String> iterator() {
-        return new ApiPageIterator(this.api);
+        return this;
+    }
+
+    public void reset() {
+        this.nextPage = 0;
+        this.cursor = 0;
+        this.buffer = Collections.emptyList();
+        this.exhausted = false;
     }
 }

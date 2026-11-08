@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class pageApi {
+
     public static class Page {
         private final List<String> items;
         private final boolean hasMore;
@@ -28,7 +29,7 @@ public class pageApi {
 
     public pageApi(List<String> data, int pageSize) {
         if (pageSize <= 0) {
-            throw new IllegalArgumentException("Размер страницы должен быть больше нуля");
+            throw new IllegalArgumentException();
         }
         this.data = data;
         this.pageSize = pageSize;
