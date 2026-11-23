@@ -1,8 +1,10 @@
 class BinaryHeap:
-    def __init__(self, key=None, is_max=False):
+    def __init__(self, items=None, key=None, is_max=False):
         self.key = key if key is not None else (lambda x: x)
         self.is_max = is_max
-        self.data = []
+        self.data = list(items) if items is not None else []
+        if self.data:
+            self.heapify()
 
     def size(self):
         return len(self.data)
@@ -25,6 +27,18 @@ class BinaryHeap:
             self.data[0] = last
             self._sift_down(0)
         return top
+
+    def replace_top(self, item):
+        if not self.data:
+            raise IndexError("Куча пуста")
+        top = self.data[0]
+        self.data[0] = item
+        self._sift_down(0)
+        return top
+
+    def heapify(self):
+        for i in range(len(self.data) // 2 - 1, -1, -1):
+            self._sift_down(i)
 
     def _compare(self, a, b):
         val_a = self.key(a)
